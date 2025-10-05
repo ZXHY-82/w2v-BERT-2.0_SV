@@ -1,0 +1,63 @@
+seed: 24
+__set_seed: !apply:deeplab.utils.misc.set_random_seed [!ref <seed>]
+
+use_amp: true
+use_gradient_clipping: true
+gradient_accumulation: 1
+cudnn_benchmark: false
+
+prune_opt:
+    distill_lr: 2e-4
+    reg_lr: null
+
+
+scheduler: !name:deeplab.core.scheduler.WarmupLR_withStepDecay
+    warmup_step: 0
+    decay_step: 20
+    gamma: 1
+
+warmup_steps: 0
+target_sparsity: 0.8
+
+num_epochs: 20
+max_iters_per_epoch: 20
+batch_size: 16
+valid_batch_size: 1
+training_loop: 1
+num_workers: 16
+output_dir: results/
+
+items_save: false
+item_save_steps: 1000
+
+dur_range: [4, 4]
+max_valid_dur: 60
+speed_perturbation: []
+data_aug: false
+
+sample_rate: 16000
+
+
+corpus_dir: /work/zl389/AudioData
+
+musan_path: !apply:os.path.join [!ref <corpus_dir>, 'musan'] 
+rirs_path:  !apply:os.path.join [!ref <corpus_dir>, 'rirs_noise'] 
+
+train_data:
+    - !name:deeplab.utils.corpus.load_audio_corpus
+        ['/work/zl389/workspace/LLM_ASV/data/vox2dev', ['dev']] # 5994
+
+valid_data:
+    - scp_path: '/work/zl389/workspace/LLM_ASV/data/test_vox/vox1-o/wav_copy.scp'
+      trial_path: '/work/zl389/workspace/LLM_ASV/data/test_vox/vox1-o/trials'
+ 
+spk_model: !new:local.spk_model.Audio2Vec_based_Prune
+        model_name: 'facebook/w2v-bert-2.0'
+        model_config_teacher: 'config_prune_tea.json'
+        model_config_student: 'config_prune_stu_0.8.json'
+        distillation_layers: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]
+        pretrain_encoder: null
+
+modules: 
+    spk_model: !ref <spk_model>
+

@@ -1,2 +1,2 @@
-# w2v-BERT-2.0_SV
-Source code and models will be released soon.
+# Enhancing Speaker Verification with W2V-BERT 2.0 and Knowledge Distillation-Guided Structured Pruning
+

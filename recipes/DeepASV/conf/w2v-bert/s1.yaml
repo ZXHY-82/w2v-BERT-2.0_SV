@@ -1,0 +1,80 @@
+seed: 24
+__set_seed: !apply:deeplab.utils.misc.set_random_seed [!ref <seed>]
+
+use_amp: true
+use_gradient_clipping: true
+gradient_accumulation: 1
+cudnn_benchmark: false
+
+optimizer: !name:torch.optim.AdamW
+    lr: 0.0001
+    weight_decay: 0.0001
+
+scheduler: !name:deeplab.core.scheduler.WarmupLR_withStepDecay
+    warmup_step: 5
+    decay_step: 5
+    gamma: 0.1
+
+num_epochs: 15
+max_iters_per_epoch: null
+batch_size: 64
+valid_batch_size: 1
+training_loop: 1
+num_workers: 16
+output_dir: results/
+
+items_save: False
+item_save_steps: 500
+
+dur_range: [2, 3]
+max_valid_dur: 60
+speed_perturbation: [0.9, 1.1]
+data_aug: true
+embd_dim: 256
+
+sample_rate: 16000
+
+corpus_dir: /work/zl389/AudioData
+
+musan_path: !apply:os.path.join [!ref <corpus_dir>, 'musan'] 
+rirs_path:  !apply:os.path.join [!ref <corpus_dir>, 'rirs_noise'] 
+
+train_data:
+    - !name:deeplab.utils.corpus.load_audio_corpus
+        ['/work/zl389/workspace/LLM_ASV/data/vox2dev', ['dev']] # 5994
+
+
+valid_data:
+    - scp_path: '/work/zl389/workspace/LLM_ASV/data/test_vox/vox1-o/wav_copy.scp'
+      trial_path: '/work/zl389/workspace/LLM_ASV/data/test_vox/vox1-o/trials'
+
+peft_config: !apply:deeplab.pretrained.audio2vector.api.create_lora_config
+    model_type: 'w2v-bert'
+    r: 64
+    lora_alpha: 128
+    target_modules: ["linear_q", "linear_v"]
+    lora_dropout: 0.0
+    bias: 'none'
+
+spk_model: !new:local.spk_model.Audio2Vec_based_Adapter
+    model_name: 'facebook/w2v-bert-2.0'
+    frozen_encoder: true
+    bnb_config: null
+    peft_config: !ref <peft_config>
+    encoder_config: 'config_prune_tea.json'
+    n_mfa_layers: -1
+    pooling_layer: 'ASP' 
+    embd_dim: !ref <embd_dim> 
+    adapter_dim: 128
+    dropout: 0.0
+
+
+classifier: !new:local.spk_classifier.ArcFace
+    in_features: !ref <embd_dim>
+    out_features:  17982
+    s: 32
+    m: 0.2
+
+modules: 
+    spk_model: !ref <spk_model>
+    classifier: !ref <classifier>
