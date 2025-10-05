@@ -117,5 +117,14 @@ python3 get_embd_w2v.py
 
 
 
+### Model download
 
+**Training sets: VoxCeleb2 & VoxBlink2**
+
+**Params: 580+6.2M**
+
+| Vox1-O (EER) | Vox1-E (EER) | Vox1-H (EER) | LMFT | Download Link                                                |
+| ------------ | ------------ | ------------ | ---- | ------------------------------------------------------------ |
+| 0.23%        | 0.38%        | 0.81%        | ×    | [Link](https://huggingface.co/zl389/w2v-bert-2.0_SV/blob/main/model_base_0.23.pth) |
+| 0.14%        | 0.31%        | 0.73%        | √    | [Link](https://huggingface.co/zl389/w2v-bert-2.0_SV/blob/main/model_lmft_0.14.pth) |
 
