@@ -1,4 +1,4 @@
-# Enhancing Speaker Verification with W2V-BERT 2.0 and Knowledge Distillation-Guided Structured Pruning
+# [Enhancing Speaker Verification with W2V-BERT 2.0 and Knowledge Distillation-Guided Structured Pruning](https://arxiv.org/abs/2510.04213)
 
 ![Diagram](assets/framework.png)
 
@@ -127,4 +127,15 @@ python3 get_embd_w2v.py
 | ------------ | ------------ | ------------ | ---- | ------------------------------------------------------------ |
 | 0.23%        | 0.38%        | 0.81%        | ×    | [Link](https://huggingface.co/zl389/w2v-bert-2.0_SV/blob/main/model_base_0.23.pth) |
 | 0.14%        | 0.31%        | 0.73%        | √    | [Link](https://huggingface.co/zl389/w2v-bert-2.0_SV/blob/main/model_lmft_0.14.pth) |
+
+## Citations
+
+```
+@article{li2025enhancing,
+  title={Enhancing Speaker Verification with w2v-BERT 2.0 and Knowledge Distillation guided Structured Pruning},
+  author={Li, Ze and Cheng, Ming and Li, Ming},
+  journal={arXiv preprint arXiv:2510.04213},
+  year={2025}
+}
+```
 
