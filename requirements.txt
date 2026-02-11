@@ -1,0 +1,12 @@
+calflops
+hyperpyyaml
+librosa
+numpy
+pydub
+scikit_learn
+scipy
+soundfile
+tqdm
+peft
+wandb
+importlib_metadata

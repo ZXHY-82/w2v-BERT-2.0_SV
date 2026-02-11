@@ -11,6 +11,20 @@ URL: https://huggingface.co/facebook/w2v-bert-2.0/blob/main/model.safetensors
 Destination folder: deeplab/pretrained/audio2vector/ckpts/facebook/w2v-bert-2.0/
 ```
 
+Environment Setup
+
+```
+conda create -y -n asv python=3.9
+
+pip install torch==2.7.1 torchvision==0.22.1 torchaudio==2.7.1 --index-url https://download.pytorch.org/whl/cu118
+
+pip install -r requirements.txt
+
+pip uninstall transformers
+
+conda install -c conda-forge sox
+```
+
 ### Train Stage
 
 **Stage1: Pre-trained model freeze training**
