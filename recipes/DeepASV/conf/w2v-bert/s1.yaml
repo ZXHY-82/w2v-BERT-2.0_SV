@@ -61,7 +61,7 @@ spk_model: !new:local.spk_model.Audio2Vec_based_Adapter
     frozen_encoder: true
     bnb_config: null
     peft_config: !ref <peft_config>
-    encoder_config: 'config_prune_tea.json'
+    encoder_config: 'config_tea.json'
     n_mfa_layers: -1
     pooling_layer: 'ASP' 
     embd_dim: !ref <embd_dim> 
