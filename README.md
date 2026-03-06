@@ -45,7 +45,7 @@ cd utils
 python3 lora_merge.py
 
 OMP_NUM_THREADS="16" CUDA_VISIBLE_DEVICES="0,1,2,3,4,5,6,7"  \
-torchrun --nnodes 1 --nproc_per_node=4 --master_port=12885 train.py \
+torchrun --nnodes 1 --nproc_per_node=8 --master_port=12885 train.py \
 --tag vox2_ \
 --is_distributed true \
 --yaml conf/w2v-bert/s2.yaml \
@@ -56,7 +56,7 @@ torchrun --nnodes 1 --nproc_per_node=4 --master_port=12885 train.py \
 
 ```
 OMP_NUM_THREADS="16" CUDA_VISIBLE_DEVICES="0,1,2,3,4,5,6,7"  \
-torchrun --nnodes 1 --nproc_per_node=4 --master_port=12885 train.py \
+torchrun --nnodes 1 --nproc_per_node=8 --master_port=12885 train.py \
 --tag vox2_ \
 --is_distributed true \
 --yaml conf/w2v-bert/s3.yaml \
@@ -97,7 +97,7 @@ torchrun --nnodes 1 --nproc_per_node=8 --master_port=12885 train_prune_s2.py \
 cd utils
 python3 apply_prune_s2.py
 
-OMP_NUM_THREADS="16" CUDA_VISIBLE_DEVICES="0,1,2,3,4,5,6"  \
+OMP_NUM_THREADS="16" CUDA_VISIBLE_DEVICES="0,1,2,3,4,5,6,7"  \
 torchrun --nnodes 1 --nproc_per_node=8 --master_port=12886 train.py \
 --tag prune_ft_ \
 --is_distributed true \
@@ -111,8 +111,8 @@ torchrun --nnodes 1 --nproc_per_node=8 --master_port=12886 train.py \
 --yaml conf/prune/s2.yaml \
 --pretrain /path/prune_ft_stage1/best_ckpt.pth
 
-OMP_NUM_THREADS="16" CUDA_VISIBLE_DEVICES="0,1,2,3"  \
-torchrun --nnodes 1 --nproc_per_node=4 --master_port=12886 train.py \
+OMP_NUM_THREADS="16" CUDA_VISIBLE_DEVICES="0,1,2,3,4,5,6,7"  \
+torchrun --nnodes 1 --nproc_per_node=8 --master_port=12886 train.py \
 --tag prune_ft_ \
 --is_distributed true \
 --yaml conf/prune/s3.yaml \
@@ -120,7 +120,7 @@ torchrun --nnodes 1 --nproc_per_node=4 --master_port=12886 train.py \
 
 ```
 
-![Diagram](assets/prune.png)
+![Diagram](assets/prune_new.png)
 
 ### Test stage
 

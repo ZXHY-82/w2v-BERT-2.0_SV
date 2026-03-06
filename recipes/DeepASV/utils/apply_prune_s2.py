@@ -6,6 +6,7 @@ import torch
 from deeplab.pretrained.audio2vector.api import AudioEncoder
 import json
 
+# ckpt is from /path/prune_stage2/xxx.ckpt
 ckpt_path = '/work/zl389/workspace/LLM_ASV/publish_code/recipes/DeepASV/results/checkpoints/prune_s2/ckpt_0040.pth'
 ckpt = torch.load(ckpt_path)
 ckpt_data = ckpt['modules']['spk_model']
@@ -33,7 +34,7 @@ model.load_state_dict(cur_state_dict)
 student_params = sum( p.numel() for p in model.parameters()) / 1e6
 print(student_params)
 
-ori_ckpt = torch.load('/work/zl389/workspace/LLM_ASV/publish_code/recipes/DeepASV/results/checkpoints/vox2_251005145628/ckpt_0002.pth')
+ori_ckpt = torch.load('/work/zl389/workspace/LLM_ASV/publish_code/recipes/DeepASV/results/checkpoints/vox2_251005145628/ckpt_0002.pth') # use the /path/stage2/best_ckpt.pth
 encoder_ckpt = {}
 
 cur_state_dict = model.state_dict()

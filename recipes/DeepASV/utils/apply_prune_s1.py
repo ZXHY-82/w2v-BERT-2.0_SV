@@ -6,7 +6,7 @@ import torch
 from deeplab.pretrained.audio2vector.api import AudioEncoder
 import json
 
-
+# ckpt is from /path/prune_stage1/xxx.ckpt
 ckpt_path = '/work/zl389/workspace/LLM_ASV/publish_code/recipes/DeepASV/results/checkpoints/prune_s1/ckpt_0020.pth'
 ckpt = torch.load(ckpt_path)
 ckpt_data = ckpt['modules']['spk_model']
@@ -56,5 +56,6 @@ for key in config.keys():
 
 data['prune'] = False
 
+# Save the pruned w2v-bert 2.0 config.
 with open(os.path.join(os.path.dirname(config_path), 'config_prune_stu_0.8.json'), 'w', encoding='utf-8') as f:
     json.dump(data, f, ensure_ascii=False, indent=4)
