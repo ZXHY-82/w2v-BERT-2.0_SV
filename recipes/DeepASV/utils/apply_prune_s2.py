@@ -35,7 +35,7 @@ student_params = sum( p.numel() for p in model.parameters()) / 1e6
 print(student_params)
 
 ori_ckpt = torch.load('/work/zl389/workspace/LLM_ASV/publish_code/recipes/DeepASV/results/checkpoints/vox2_251005145628/ckpt_0002.pth') # use the /path/stage2/best_ckpt.pth
-encoder_ckpt = {}
+encoder_ckpt = ori_ckpt['modules']['spk_model']
 
 cur_state_dict = model.state_dict()
 for k in cur_state_dict.keys():
