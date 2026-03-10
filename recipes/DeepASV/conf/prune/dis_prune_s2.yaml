@@ -20,7 +20,7 @@ warmup_steps: 0
 target_sparsity: 0.8
 
 num_epochs: 20
-max_iters_per_epoch: 20
+max_iters_per_epoch: null
 batch_size: 16
 valid_batch_size: 1
 training_loop: 1
