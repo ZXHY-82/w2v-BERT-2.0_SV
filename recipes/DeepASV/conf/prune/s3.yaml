@@ -57,7 +57,7 @@ spk_model: !new:local.spk_model.Audio2Vec_based_Adapter
     frozen_encoder: false
     bnb_config: null
     peft_config: !ref <peft_config>
-    encoder_config: 'config_prune_stu_0.8.json'
+    encoder_config: 'config_prune_stu_0.8.json' # replace this with your pruned w2v-bert 2.0 config
     n_mfa_layers: -1
     pooling_layer: 'ASP' 
     embd_dim: !ref <embd_dim> 

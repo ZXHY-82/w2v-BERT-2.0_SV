@@ -137,6 +137,8 @@ python3 get_embd_w2v.py
 
 **Params: 580+6.2M**
 
+**The training YAML configuration**: [config](https://huggingface.co/zl389/w2v-bert-2.0_SV/tree/main/config/v1)
+
 | Vox1-O (EER) | Vox1-E (EER) | Vox1-H (EER) | LMFT | Download Link                                                |
 | ------------ | ------------ | ------------ | ---- | ------------------------------------------------------------ |
 | 0.23%        | 0.38%        | 0.81%        | ×    | [Link](https://huggingface.co/zl389/w2v-bert-2.0_SV/blob/main/model_base_0.23.pth) |
