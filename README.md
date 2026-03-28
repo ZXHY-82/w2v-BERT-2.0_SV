@@ -154,9 +154,9 @@ python3 get_embd_w2v.py
 
 |            | Vox1-O (EER) | Vox1-E (EER) | Vox1-H (EER) | LMFT | Download Link                                                |
 | ---------- | ------------ | ------------ | ------------ | ---- | ------------------------------------------------------------ |
-| **Stage1** | 0.43%        | 0.65%        | 1.26%        | ×    | [Link]([zl389/w2v-bert-2.0_SV at main (huggingface.co)](https://huggingface.co/zl389/w2v-bert-2.0_SV/tree/main/Adapter_MFA_voxceleb2/s1)) |
-| **Stage2** | 0.28%        | 0.50%        | 1.04%        | ×    | [Link]([zl389/w2v-bert-2.0_SV at main (huggingface.co)](https://huggingface.co/zl389/w2v-bert-2.0_SV/tree/main/Adapter_MFA_voxceleb2/s2)) |
-| **Satge3** | 0.18%        | 0.37%        | 0.81%        | √    | [Link]([zl389/w2v-bert-2.0_SV at main (huggingface.co)](https://huggingface.co/zl389/w2v-bert-2.0_SV/tree/main/Adapter_MFA_voxceleb2/s3)) |
+| **Stage1** | 0.43%        | 0.65%        | 1.26%        | ×    | [Link](https://huggingface.co/zl389/w2v-bert-2.0_SV/tree/main/Adapter_MFA_voxceleb2/s1) |
+| **Stage2** | 0.28%        | 0.50%        | 1.04%        | ×    | [Link](https://huggingface.co/zl389/w2v-bert-2.0_SV/tree/main/Adapter_MFA_voxceleb2/s2) |
+| **Satge3** | 0.18%        | 0.37%        | 0.81%        | √    | [Link](https://huggingface.co/zl389/w2v-bert-2.0_SV/tree/main/Adapter_MFA_voxceleb2/s3) |
 
 **Model: LoRA_Adapter_MFA** 
 
@@ -164,9 +164,9 @@ python3 get_embd_w2v.py
 
 |            | Vox1-O (EER) | Vox1-E (EER) | Vox1-H (EER) | LMFT | Download Link                                                |
 | ---------- | ------------ | ------------ | ------------ | ---- | ------------------------------------------------------------ |
-| **Stage1** | 0.31%        | 0.55%        | 1.17%        | ×    | [Link]([zl389/w2v-bert-2.0_SV at main (huggingface.co)](https://huggingface.co/zl389/w2v-bert-2.0_SV/tree/main/Lora_Adapter_MFA_voxceleb2/s1)) |
-| **Stage2** | 0.30%        | 0.53%        | 1.15%        | ×    | [Link]([zl389/w2v-bert-2.0_SV at main (huggingface.co)](https://huggingface.co/zl389/w2v-bert-2.0_SV/tree/main/Lora_Adapter_MFA_voxceleb2/s2)) |
-| **Stage3** | 0.23%        | 0.46%        | 1.03%        | √    | [Link]([zl389/w2v-bert-2.0_SV at main (huggingface.co)](https://huggingface.co/zl389/w2v-bert-2.0_SV/tree/main/Lora_Adapter_MFA_voxceleb2/s3)) |
+| **Stage1** | 0.31%        | 0.55%        | 1.17%        | ×    | [Link](https://huggingface.co/zl389/w2v-bert-2.0_SV/tree/main/Lora_Adapter_MFA_voxceleb2/s1) |
+| **Stage2** | 0.30%        | 0.53%        | 1.15%        | ×    | [Link](https://huggingface.co/zl389/w2v-bert-2.0_SV/tree/main/Lora_Adapter_MFA_voxceleb2/s2) |
+| **Stage3** | 0.23%        | 0.46%        | 1.03%        | √    | [Link](https://huggingface.co/zl389/w2v-bert-2.0_SV/tree/main/Lora_Adapter_MFA_voxceleb2/s3) |
 
 ## Citations
 
